@@ -5,9 +5,9 @@ import ExampleComponent from "react-layout-ui";
 export default class App extends Component {
   render() {
     return (
-      <div>
-        <ExampleComponent color="green" />
-      </div>
+      <ExampleComponent color="gray" width={50}>
+        <div>hello component</div>
+      </ExampleComponent>
     );
   }
 }

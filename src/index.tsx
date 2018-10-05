@@ -9,6 +9,7 @@ import { StyledStatelessComponent } from "create-emotion-styled";
 type Props = {
   className: string;
   color: string;
+  width: Number;
 };
 
 const El: React.SFC<Props> = props => {
@@ -27,6 +28,7 @@ const El: React.SFC<Props> = props => {
 const styledEl: StyledStatelessComponent<Props, {}, {}> = styled(El)<Props>(
   props => ({
     color: props.color,
+    width: `${props.width}px`,
   })
 );
 
