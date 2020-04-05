@@ -15,6 +15,8 @@
     "build": "tsdx build",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
+    "prettier": "prettier --write",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
     "prepare": "tsdx build"
   },
   "peerDependencies": {
@@ -22,14 +24,24 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "tsdx lint"
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,md,html,css}": [
+      "prettier --write",
+      "git add ."
+    ],
+    "*.ts?(x)": [
+      "yarn lint",
+      "yarn typecheck"
+    ]
   },
   "prettier": {
     "printWidth": 80,
     "semi": true,
     "singleQuote": true,
-    "trailingComma": "es5"
+    "trailingComma": "all"
   },
   "name": "react-layout-ui",
   "author": "Tyler Haas",
@@ -39,6 +51,7 @@
     "@types/react": "^16.9.32",
     "@types/react-dom": "^16.9.6",
     "husky": "^4.2.3",
+    "lint-staged": "^10.1.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "tsdx": "^0.13.1",
