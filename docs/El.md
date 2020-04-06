@@ -1,4 +1,4 @@
-# <El />
+# El
 
 ## Behavior
 
