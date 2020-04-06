@@ -7,5 +7,5 @@
 
 ## Props
 
-- width -> amount of horizontal space to consume in px
+- width: number -> amount of horizontal space to consume in px
 - height: number -> amount of vertical space to consume in px
