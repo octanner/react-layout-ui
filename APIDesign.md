@@ -15,24 +15,8 @@ Seperate Layout css and style css. Want to be able to get a full picture of layo
 - [Column](#Column)
 - [Paragraph](#Paragraph)
 - [TextColumn](#TextColumn)
-- [Table](#Table)
-- [Link](#Link)
-- [Image](#Image)
-- [Above](#Above)
-- [Below](#Below)
-- [OnRight](#OnRight)
-- [OnLeft](#OnLeft)
-- [InFront](#InFront)
-- [BehindContent](#BehindContent)
 
 ## Utility Functions
-
-```TypeScript
-interface Options {
-  maximum: number;
-  minimum: number;
-}
-```
 
 ### fill
 
@@ -80,31 +64,139 @@ shrink(opts?: Options): number;
 
 - width: number -> amount of horizontal space to consume in px
 - height: number -> amount of vertical space to consume in px
+- padding: number | number[] -> amount of padding to apply
+- horizontalAlignment: HorizontalAlignment -> horizontal positioning of child
+- verticalAlignment: VerticalAlignment -> vertical poitioning of child
+- renderBelow: React.ChildNode -> renders below children
+- renderAbove: React.ChildNode -> renders above children
+- renderOnRight: React.ChildNode -> renders to right of children
+- renderOnLeft: React.ChildNode -> renders to left of children
+- renderInFront: React.ChildNode -> renders in front of children
+- renderBehindContent: React.ChildNode -> renders between the background and content of an element
 
 ## Row
 
+### Behavior
+
+- container for multiple child elements
+- renders child elements in a row
+- items dont wrap
+
+### Props
+
+- width: number -> amount of horizontal space to consume in px
+- height: number -> amount of vertical space to consume in px
+- padding: number | number[] -> amount of padding to apply to container
+- spacing: 'even' | number | number[] -> amount of space to apply between items
+- horizontalAlignment: HorizontalAlignment -> horizontal positioning of child
+- verticalAlignment: VerticalAlignment -> vertical poitioning of child
+- renderBelow: React.ChildNode -> renders below children
+- renderAbove: React.ChildNode -> renders above children
+- renderOnRight: React.ChildNode -> renders to right of children
+- renderOnLeft: React.ChildNode -> renders to left of children
+- renderInFront: React.ChildNode -> renders in front of children
+- renderBehindContent: React.ChildNode -> renders between the background and content of an element
+
 ## WrappedRow
+
+### Behavior
+
+- container for multiple child elements
+- renders child elements horizontally
+- items wrap to next line if necessary
+
+### Props
+
+- width: number -> amount of horizontal space to consume in px
+- height: number -> amount of vertical space to consume in px
+- padding: number | number[] -> amount of padding to apply to container
+- spacing: 'even' | number | number[] -> amount of space to apply between items
+- horizontalAlignment: HorizontalAlignment -> horizontal positioning of child
+- verticalAlignment: VerticalAlignment -> vertical poitioning of child
+- renderBelow: React.ChildNode -> renders below children
+- renderAbove: React.ChildNode -> renders above children
+- renderOnRight: React.ChildNode -> renders to right of children
+- renderOnLeft: React.ChildNode -> renders to left of children
+- renderInFront: React.ChildNode -> renders in front of children
+- renderBehindContent: React.ChildNode -> renders between the background and content of an element
 
 ## Column
 
+### Behavior
+
+- container for multiple child elements
+- renders child elements vertically
+- items wrap to next line if necessary
+
+### Props
+
+- width: number -> amount of horizontal space to consume in px
+- height: number -> amount of vertical space to consume in px
+- padding: number | number[] -> amount of padding to apply to container
+- spacing: 'even' | number | number[] -> amount of space to apply between items
+- horizontalAlignment: HorizontalAlignment -> horizontal positioning of child
+- verticalAlignment: VerticalAlignment -> vertical poitioning of child
+- renderBelow: React.ChildNode -> renders below children
+- renderAbove: React.ChildNode -> renders above children
+- renderOnRight: React.ChildNode -> renders to right of children
+- renderOnLeft: React.ChildNode -> renders to left of children
+- renderInFront: React.ChildNode -> renders in front of children
+- renderBehindContent: React.ChildNode -> renders between the background and content of an element
+
 ## Paragraph
+
+### Behavior
+
+- layout all children as wrapped inline elements
+- intended for use with text
+- children with `horizontalAlignment="left"` or `horizontalAlignment="right"` will be moved to that side and have text float around it.
+
+### Props
+
+- width: number -> amount of horizontal space to consume in px
+- height: number -> amount of vertical space to consume in px
+- padding: number | number[] -> amount of padding to apply to container
+- spacing: 'even' | number | number[] -> number of pixels to apply between lines of text
+- horizontalAlignment: HorizontalAlignment -> horizontal positioning of child
+- verticalAlignment: VerticalAlignment -> vertical poitioning of child
+- renderBelow: React.ChildNode -> renders below children
+- renderAbove: React.ChildNode -> renders above children
+- renderOnRight: React.ChildNode -> renders to right of children
+- renderOnLeft: React.ChildNode -> renders to left of children
+- renderInFront: React.ChildNode -> renders in front of children
+- renderBehindContent: React.ChildNode -> renders between the background and content of an element
 
 ## TextColumn
 
-## Table
+### Behavior
 
-## Link
+- controls how a group of paragraphs are laid out
+- child `Paragraph`'s will flow around child `El`'s the same way paragraphs do
 
-## Image
+### Props
 
-## Above
+- width: number -> amount of horizontal space to consume in px
+- height: number -> amount of vertical space to consume in px
+- padding: number | number[] -> amount of padding to apply to container
+- spacing: 'even' | number | number[] -> number of pixels to apply between `Paragraph`'s
+- horizontalAlignment: HorizontalAlignment -> horizontal positioning of child
+- verticalAlignment: VerticalAlignment -> vertical poitioning of child
+- renderBelow: React.ChildNode -> renders below children
+- renderAbove: React.ChildNode -> renders above children
+- renderOnRight: React.ChildNode -> renders to right of children
+- renderOnLeft: React.ChildNode -> renders to left of children
+- renderInFront: React.ChildNode -> renders in front of children
+- renderBehindContent: React.ChildNode -> renders between the background and content of an element
 
-## Below
+## Types
 
-## OnRight
+```TypeScript
+interface Options {
+  maximum: number;
+  minimum: number;
+}
 
-## OnLeft
+type HorizontalAlignment = 'center' | 'left' | 'right'
 
-## InFront
-
-## BehindContent
+type VerticalAlignment = 'center' | 'top' | 'bottom'
+```
